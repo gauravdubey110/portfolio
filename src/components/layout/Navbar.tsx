@@ -9,19 +9,16 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { name: 'Overview', href: '#hero' },
-  { name: 'Impact', href: '#impact' },
+  { name: 'About', href: '#about' },
   { name: 'Experience', href: '#experience' },
-  { name: 'Case Studies', href: '#case-studies' },
-  { name: 'Principles', href: '#principles' },
+  { name: 'Architecture', href: '#case-studies' },
   { name: 'Stack', href: '#stack' },
   { name: 'Projects', href: '#projects' },
-  { name: 'AI & MCP', href: '#ai-workflow' },
   { name: 'Contact', href: '#contact' },
 ];
 
 export const Navbar: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('hero');
+  const [activeSection, setActiveSection] = useState<string>('about');
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -31,7 +28,7 @@ export const Navbar: React.FC = () => {
 
       // Scroll spy logic
       const sections = navItems.map(item => item.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 180;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const sectionEl = document.getElementById(sections[i]);
@@ -50,7 +47,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#07090e]/90 backdrop-blur-md border-b border-surface-border py-3 shadow-lg shadow-black/40'
+          ? 'bg-[#07090e]/95 backdrop-blur-md border-b border-surface-border py-2.5 shadow-lg shadow-black/40'
           : 'bg-transparent py-4'
       }`}
     >
@@ -67,7 +64,7 @@ export const Navbar: React.FC = () => {
             <div>
               <div className="font-bold text-sm text-white tracking-tight flex items-center gap-1.5">
                 <span>{profileData.name}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" title="Available for backend & distributed systems engineering" />
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" title="Available for engineering roles" />
               </div>
               <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">
                 Software Engineer
@@ -75,8 +72,8 @@ export const Navbar: React.FC = () => {
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-1 bg-surface-elevated/70 border border-surface-border px-3 py-1.5 rounded-full">
+          {/* Desktop Navigation Links - Simplified & Centered */}
+          <nav className="hidden lg:flex items-center gap-1 bg-surface-elevated/80 border border-surface-border px-3 py-1 rounded-full shadow-inner">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -85,8 +82,8 @@ export const Navbar: React.FC = () => {
                   href={item.href}
                   className={`px-3 py-1 text-xs font-mono rounded-full transition-all ${
                     isActive
-                      ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 font-semibold'
-                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40'
+                      ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 font-semibold shadow-sm'
+                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/40 border border-transparent'
                   }`}
                 >
                   {item.name}
@@ -96,7 +93,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Actions: GitHub, LinkedIn, Resume, Contact */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-2">
             <a
               href={profileData.github}
               target="_blank"
@@ -118,7 +115,7 @@ export const Navbar: React.FC = () => {
             <a
               href="/Gaurav_Dubey__SWE_Resume.pdf"
               download="Gaurav_Dubey_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-lg bg-surface-elevated hover:bg-zinc-800 text-zinc-300 hover:text-white border border-surface-border hover:border-zinc-600 transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-lg bg-surface-elevated hover:bg-zinc-800 text-zinc-200 hover:text-white border border-surface-border hover:border-zinc-600 transition-all shadow-sm"
             >
               <FileDown className="w-3.5 h-3.5 text-cyan-400" />
               <span>Resume</span>
@@ -133,7 +130,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex xl:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <a
               href="/Gaurav_Dubey__SWE_Resume.pdf"
               download="Gaurav_Dubey_Resume.pdf"
@@ -156,17 +153,17 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#0a0d14] border-b border-surface-border px-4 pt-3 pb-6 space-y-2">
+        <div className="lg:hidden bg-[#0a0d14] border-b border-surface-border px-4 pt-3 pb-6 space-y-2 shadow-2xl">
           <div className="grid grid-cols-2 gap-1.5 mb-4">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-3 py-2 text-xs font-mono rounded-lg ${
+                className={`px-3 py-2 text-xs font-mono rounded-lg transition-colors ${
                   activeSection === item.href.substring(1)
-                    ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/60'
-                    : 'text-zinc-400 hover:bg-zinc-900'
+                    ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 font-semibold'
+                    : 'text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200'
                 }`}
               >
                 {item.name}
@@ -204,7 +201,7 @@ export const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2 text-xs font-mono font-medium rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 text-white"
+              className="px-4 py-2 text-xs font-mono font-medium rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-sm"
             >
               Get in Touch
             </a>

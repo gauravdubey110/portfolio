@@ -20,17 +20,17 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
   className = '',
 }) => {
   return (
-    <section id={id} className={`py-16 md:py-24 relative ${className}`}>
+    <section id={id} className={`py-10 md:py-16 relative ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-10 md:mb-14">
+        <div className="mb-8 md:mb-10">
           {badge && (
-            <div className="mb-3">
-              <span className={`inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest px-3 py-1 rounded-full border ${
-                badgeVariant === 'cyan' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-800/40' :
-                badgeVariant === 'emerald' ? 'bg-emerald-950/40 text-emerald-400 border-emerald-800/40' :
-                badgeVariant === 'indigo' ? 'bg-indigo-950/40 text-indigo-400 border-indigo-800/40' :
-                badgeVariant === 'amber' ? 'bg-amber-950/40 text-amber-400 border-amber-800/40' :
+            <div className="mb-2.5">
+              <span className={`inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-widest px-2.5 py-0.5 rounded-full border ${
+                badgeVariant === 'cyan' ? 'bg-cyan-950/50 text-cyan-400 border-cyan-800/40' :
+                badgeVariant === 'emerald' ? 'bg-emerald-950/50 text-emerald-400 border-emerald-800/40' :
+                badgeVariant === 'indigo' ? 'bg-indigo-950/50 text-indigo-400 border-indigo-800/40' :
+                badgeVariant === 'amber' ? 'bg-amber-950/50 text-amber-400 border-amber-800/40' :
                 'bg-zinc-900/50 text-zinc-400 border-zinc-800'
               }`}>
                 <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
@@ -42,7 +42,7 @@ export const SectionContainer: React.FC<SectionContainerProps> = ({
             {title}
           </h2>
           {subtitle && (
-            <p className="mt-3 text-base sm:text-lg text-zinc-400 max-w-3xl font-normal leading-relaxed">
+            <p className="mt-2.5 text-sm sm:text-base text-zinc-300 max-w-3xl font-normal leading-relaxed">
               {subtitle}
             </p>
           )}

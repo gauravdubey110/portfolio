@@ -9,7 +9,6 @@ import { CaseStudiesSection } from './components/caseStudies/CaseStudiesSection'
 import { PrinciplesSection } from './components/principles/PrinciplesSection';
 import { SkillsConstellation } from './components/skills/SkillsConstellation';
 import { ProjectsGrid } from './components/projects/ProjectsGrid';
-import { AiWorkflowSection } from './components/aiWorkflow/AiWorkflowSection';
 import { EducationSection } from './components/education/EducationSection';
 import { ContactSection } from './components/contact/ContactSection';
 import { Footer } from './components/layout/Footer';
@@ -34,7 +33,7 @@ export const App: React.FC = () => {
         {/* 4. Experience & Career Progression */}
         <ExperienceTimeline />
 
-        {/* 5. Deep-Dive Case Studies */}
+        {/* 5. Deep-Dive Architecture Case Studies */}
         <CaseStudiesSection />
 
         {/* 6. Systems Thinking / Principles */}
@@ -46,13 +45,10 @@ export const App: React.FC = () => {
         {/* 8. Projects & Open Source */}
         <ProjectsGrid />
 
-        {/* 9. AI & Spec-Driven Development (MCP) */}
-        <AiWorkflowSection />
-
-        {/* 10. Education */}
+        {/* 9. Education */}
         <EducationSection />
 
-        {/* 11. Contact & Transmission */}
+        {/* 10. Contact & Transmission */}
         <ContactSection />
       </main>
 

@@ -35,20 +35,20 @@ export const ContactSection: React.FC = () => {
       title="Let's Build Something That Scales"
       subtitle="Open for senior backend engineering, distributed systems architecture, and high-impact full-stack roles."
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Direct Reach & Interactive CLI */}
-        <div className="lg:col-span-5 space-y-6">
-          <Card className="p-6">
-            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Left Column: Direct Reach */}
+        <div className="lg:col-span-5 space-y-4">
+          <Card className="p-5 sm:p-6">
+            <h3 className="text-base font-bold text-white mb-3.5 flex items-center gap-2">
               <Terminal className="w-4 h-4 text-cyan-400" />
-              Direct Communication Endpoints
+              Direct Communication Channels
             </h3>
 
-            <div className="space-y-3 font-mono text-xs">
+            <div className="space-y-2.5 font-mono text-xs">
               {/* Email */}
-              <div className="flex items-center justify-between p-3.5 rounded-lg bg-[#090c12] border border-surface-border">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-md bg-cyan-950/60 text-cyan-400 border border-cyan-800/40">
+              <div className="flex items-center justify-between p-3 rounded-lg bg-[#090c12] border border-surface-border">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-md bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 flex-shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -61,7 +61,7 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="p-2 rounded-md bg-zinc-800 text-zinc-300 hover:text-white transition-colors"
+                  className="p-2 rounded-md bg-zinc-850 text-zinc-300 hover:text-white transition-colors border border-surface-border hover:border-zinc-600"
                   title="Copy email"
                   aria-label="Copy email address"
                 >
@@ -74,10 +74,10 @@ export const ContactSection: React.FC = () => {
                 href={profileData.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3.5 rounded-lg bg-[#090c12] border border-surface-border hover:border-cyan-500/50 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#090c12] border border-surface-border hover:border-cyan-500/50 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-md bg-indigo-950/60 text-indigo-400 border border-indigo-800/40">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-md bg-indigo-950/60 text-indigo-400 border border-indigo-800/40 flex-shrink-0">
                     <LinkedinIcon className="w-4 h-4" />
                   </div>
                   <div>
@@ -93,10 +93,10 @@ export const ContactSection: React.FC = () => {
                 href={profileData.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between p-3.5 rounded-lg bg-[#090c12] border border-surface-border hover:border-cyan-500/50 transition-colors group"
+                className="flex items-center justify-between p-3 rounded-lg bg-[#090c12] border border-surface-border hover:border-cyan-500/50 transition-colors group"
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 rounded-md bg-zinc-900 text-zinc-300 border border-zinc-800 flex-shrink-0">
                     <GithubIcon className="w-4 h-4" />
                   </div>
                   <div>
@@ -110,18 +110,18 @@ export const ContactSection: React.FC = () => {
           </Card>
         </div>
 
-        {/* Right Column: Interactive Direct Message Form */}
+        {/* Right Column: Direct Message Form */}
         <div className="lg:col-span-7">
-          <Card className="p-6">
-            <h3 className="text-lg font-bold text-white mb-2">
-              Send a Direct Transmission
+          <Card className="p-5 sm:p-6">
+            <h3 className="text-base font-bold text-white mb-1">
+              Send a Direct Message
             </h3>
-            <p className="text-xs text-zinc-400 mb-6 font-mono">
-              Fill out the parameters below to open your native email client directly with prefilled details.
+            <p className="text-xs text-zinc-400 mb-4 font-mono">
+              Fill out the fields below to open your native email client directly with prefilled details.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
                   <label className="block text-xs font-mono text-zinc-400 uppercase mb-1">
                     Your Name
@@ -131,8 +131,8 @@ export const ContactSection: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Alex Miller"
-                    className="w-full px-3.5 py-2 text-xs font-mono bg-[#090c12] border border-surface-border rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500"
+                    placeholder="e.g. Engineering Lead"
+                    className="w-full px-3 py-2 text-xs font-mono bg-[#090c12] border border-surface-border rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500"
                   />
                 </div>
                 <div>
@@ -144,8 +144,8 @@ export const ContactSection: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="alex@company.com"
-                    className="w-full px-3.5 py-2 text-xs font-mono bg-[#090c12] border border-surface-border rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500"
+                    placeholder="lead@company.com"
+                    className="w-full px-3 py-2 text-xs font-mono bg-[#090c12] border border-surface-border rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500"
                   />
                 </div>
               </div>
@@ -155,12 +155,12 @@ export const ContactSection: React.FC = () => {
                   Message / Architecture Scope
                 </label>
                 <textarea
-                  rows={4}
+                  rows={3}
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about the distributed system, engineering team, or role you have in mind..."
-                  className="w-full px-3.5 py-2 text-xs font-mono bg-[#090c12] border border-surface-border rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500 resize-none"
+                  className="w-full px-3 py-2 text-xs font-mono bg-[#090c12] border border-surface-border rounded-lg text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500 resize-none"
                 />
               </div>
 

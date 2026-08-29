@@ -92,28 +92,5 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
         grounding: 'Cut on-call MTTR by 25% with standardized engineering runbooks.'
       }
     ]
-  },
-  {
-    id: 'velocity',
-    title: 'Developer Velocity & AI Tooling',
-    iconName: 'Cpu',
-    coreConcept: 'High engineering velocity is achieved through rigorous automation, spec-driven development, comprehensive test coverage, and contextual AI augmentation.',
-    practices: [
-      {
-        name: 'Model Context Protocol (MCP) Integration',
-        detail: 'Feed structured organization schemas, design tokens, and API specifications directly into AI agents to automate boilerplates and UI delivery.',
-        grounding: 'Achieved 70%+ frontend development acceleration via MCP and SDD.'
-      },
-      {
-        name: 'Behavior-Driven Testing (BDD)',
-        detail: 'Write human-readable, executable specifications with Karate and Gherkin that run in CI/CD pipelines as living documentation.',
-        grounding: 'Achieved 95%+ test coverage and cut regression cycles by 50%.'
-      },
-      {
-        name: 'Automated CI/CD Verification',
-        detail: 'Immutable Docker container builds, linting, security scans, and automated canary deployments ensuring reliable delivery.',
-        grounding: 'Continuous deployment of microservices with zero disruption.'
-      }
-    ]
   }
 ];
