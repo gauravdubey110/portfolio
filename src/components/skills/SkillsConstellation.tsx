@@ -2,17 +2,15 @@ import React, { useState, useMemo } from 'react';
 import { skillCategories } from '../../data/skills';
 import { SectionContainer } from '../ui/SectionContainer';
 import { Card } from '../ui/Card';
-import { Search, Server, Network, Database, Cloud, Layout, Activity, Bot, Code, Cpu } from 'lucide-react';
+import { Search, Server, Network, Database, Cloud, Activity, Bot, Cpu } from 'lucide-react';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Server,
   Network,
   Database,
   Cloud,
-  Layout,
   Activity,
   Bot,
-  Code,
 };
 
 export const SkillsConstellation: React.FC = () => {
@@ -39,18 +37,18 @@ export const SkillsConstellation: React.FC = () => {
       badge="Technical Matrix"
       badgeVariant="cyan"
       title="Interactive Technical Stack"
-      subtitle="Categorized engineering capabilities strictly grounded in production experience and verified projects."
+      subtitle="Categorized engineering capabilities strictly grounded in production experience, distributed architectures, and verified tools."
     >
       {/* Search & Category Filter Toolbar */}
-      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3.5 mb-6">
         {/* Category Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
           <button
             type="button"
             onClick={() => setSelectedCategory('all')}
             className={`px-3 py-1.5 rounded-lg text-xs font-mono whitespace-nowrap transition-all ${
               selectedCategory === 'all'
-                ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 font-semibold'
+                ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 font-semibold shadow-sm'
                 : 'bg-surface text-zinc-400 hover:text-zinc-200 border border-surface-border'
             }`}
           >
@@ -63,7 +61,7 @@ export const SkillsConstellation: React.FC = () => {
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-3 py-1.5 rounded-lg text-xs font-mono whitespace-nowrap transition-all ${
                 selectedCategory === cat.id
-                  ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 font-semibold'
+                  ? 'bg-cyan-950/60 text-cyan-400 border border-cyan-800/60 font-semibold shadow-sm'
                   : 'bg-surface text-zinc-400 hover:text-zinc-200 border border-surface-border'
               }`}
             >
@@ -79,19 +77,19 @@ export const SkillsConstellation: React.FC = () => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search technologies (e.g., Kafka, JVM, React)..."
-            className="w-full pl-9 pr-4 py-1.5 text-xs font-mono bg-surface border border-surface-border rounded-lg text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
+            placeholder="Search technologies (e.g. Kafka, JVM, Redis)..."
+            className="w-full pl-9 pr-3.5 py-1.5 text-xs font-mono bg-surface border border-surface-border rounded-lg text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500"
           />
         </div>
       </div>
 
-      {/* Skills Group Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Skills Group Grid - 6 Domain Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredCategories.map((cat) => {
           const Icon = iconMap[cat.icon] || Cpu;
 
           return (
-            <Card key={cat.id} className="flex flex-col justify-between">
+            <Card key={cat.id} className="flex flex-col justify-between p-5">
               <div>
                 <div className="flex items-center gap-2.5 mb-3 pb-3 border-b border-surface-border">
                   <div className="p-2 rounded-lg bg-cyan-950/50 text-cyan-400 border border-cyan-800/40">
@@ -99,12 +97,12 @@ export const SkillsConstellation: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-sm sm:text-base text-white">{cat.title}</h3>
-                    <p className="text-[11px] text-zinc-500 line-clamp-1">{cat.description}</p>
+                    <p className="text-[11px] text-zinc-400 line-clamp-1">{cat.description}</p>
                   </div>
                 </div>
 
                 {/* Skill List */}
-                <div className="space-y-2.5 mt-4">
+                <div className="space-y-2 mt-3.5">
                   {cat.skills.map((skill, idx) => (
                     <div
                       key={idx}
@@ -125,7 +123,7 @@ export const SkillsConstellation: React.FC = () => {
                         </span>
                       </div>
                       {skill.context && (
-                        <p className="text-[11px] text-zinc-400 leading-tight">
+                        <p className="text-[11px] text-zinc-300 leading-tight">
                           {skill.context}
                         </p>
                       )}

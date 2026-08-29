@@ -61,7 +61,7 @@ const architectureNodes: Record<string, NodeInfo> = {
     id: 'storage',
     name: 'Multi-Model Data Layer',
     category: 'Persistence & Caching',
-    description: 'Polygol data architecture with Apache Cassandra, PostgreSQL read-replicas, and Redis distributed caching.',
+    description: 'Polyglot data architecture with Apache Cassandra, PostgreSQL read-replicas, and Redis distributed caching.',
     specs: ['Cassandra (40M+ records, LCS)', 'PostgreSQL (ACID Inventory Ledger)', 'Redis L2 Multi-Region Cache'],
     throughput: '40M+ records migrated',
     latency: 'P99 read < 12ms',

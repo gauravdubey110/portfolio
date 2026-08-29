@@ -21,12 +21,12 @@ export const ExperienceTimeline: React.FC = () => {
   return (
     <SectionContainer
       id="experience"
-      badge="Career Progression"
+      badge="Career Track"
       badgeVariant="indigo"
-      title="Engineering Experience & Leadership"
+      title="Engineering Experience & Impact"
       subtitle="Track record of designing, scaling, and maintaining mission-critical distributed systems and event-driven backends."
     >
-      <div className="space-y-8 relative">
+      <div className="space-y-6 relative">
         {/* Continuous Timeline Line (Desktop) */}
         <div className="hidden lg:block absolute left-8 top-6 bottom-6 w-[2px] bg-gradient-to-b from-cyan-500 via-indigo-500 to-zinc-800 pointer-events-none" />
 
@@ -42,12 +42,12 @@ export const ExperienceTimeline: React.FC = () => {
                   : 'bg-indigo-400 border-indigo-300'
               }`} />
 
-              <Card className="overflow-hidden">
+              <Card className="overflow-hidden p-5 sm:p-6">
                 {/* Role Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-surface-border">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-surface-border">
                   <div>
-                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                         {role.title}
                       </h3>
                       {role.isCurrent && (
@@ -56,7 +56,7 @@ export const ExperienceTimeline: React.FC = () => {
                         </Badge>
                       )}
                     </div>
-                    <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono text-zinc-400">
+                    <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-zinc-400">
                       <span className="flex items-center gap-1.5 text-cyan-400 font-semibold">
                         <Briefcase className="w-3.5 h-3.5" />
                         {role.company}
@@ -73,20 +73,20 @@ export const ExperienceTimeline: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => toggleRole(role.id)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-elevated hover:bg-zinc-800 text-zinc-300 border border-surface-border transition-colors self-start md:self-auto"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono bg-surface-elevated hover:bg-zinc-800 text-zinc-200 border border-surface-border hover:border-zinc-600 transition-colors self-start md:self-auto"
                   >
-                    <span>{isExpanded ? 'Collapse Details' : 'Expand All Bullet Points'}</span>
+                    <span>{isExpanded ? 'Hide Details' : 'View All Scope'}</span>
                     {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
                   </button>
                 </div>
 
                 {/* Summary Statement */}
-                <p className="mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+                <p className="mt-3.5 text-xs sm:text-sm text-zinc-200 leading-relaxed font-normal">
                   {role.summary}
                 </p>
 
                 {/* Key Metrics Pills */}
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3.5 flex flex-wrap gap-1.5">
                   {role.metrics.map((metric, i) => (
                     <span
                       key={i}
@@ -100,13 +100,13 @@ export const ExperienceTimeline: React.FC = () => {
 
                 {/* Expanded Bullet Points */}
                 {isExpanded && (
-                  <div className="mt-6 pt-5 border-t border-zinc-800/80 space-y-3">
-                    <div className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                  <div className="mt-5 pt-4 border-t border-zinc-800/80 space-y-2.5">
+                    <div className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-1">
                       Key Technical Contributions & Architectural Scope
                     </div>
-                    <div className="grid grid-cols-1 gap-2.5">
+                    <div className="grid grid-cols-1 gap-2">
                       {role.coreHighlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed bg-[#0a0d14]/70 p-3 rounded-lg border border-surface-border">
+                        <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-200 leading-relaxed bg-[#0a0d14]/70 p-3 rounded-lg border border-surface-border">
                           <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                           <span>{highlight}</span>
                         </div>
@@ -115,7 +115,7 @@ export const ExperienceTimeline: React.FC = () => {
 
                     {/* Architecture Note */}
                     {role.architectureNotes && (
-                      <div className="mt-4 p-3.5 rounded-lg bg-cyan-950/20 border border-cyan-900/40 text-xs font-mono text-cyan-300 flex items-start gap-2.5">
+                      <div className="mt-3.5 p-3 rounded-lg bg-cyan-950/20 border border-cyan-900/40 text-xs font-mono text-cyan-200 flex items-start gap-2.5">
                         <Server className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
                         <div>
                           <span className="font-bold text-cyan-400 uppercase">Architecture Context: </span>
@@ -125,8 +125,8 @@ export const ExperienceTimeline: React.FC = () => {
                     )}
 
                     {/* Tech Stack */}
-                    <div className="mt-4 pt-4 border-t border-zinc-800/60 flex flex-wrap items-center gap-1.5">
-                      <span className="text-xs font-mono text-zinc-400 mr-2 flex items-center gap-1">
+                    <div className="mt-3.5 pt-3 border-t border-zinc-800/60 flex flex-wrap items-center gap-1.5">
+                      <span className="text-xs font-mono text-zinc-400 mr-1.5 flex items-center gap-1">
                         <Cpu className="w-3.5 h-3.5" /> Stack:
                       </span>
                       {role.technologies.map((tech, tIdx) => (
